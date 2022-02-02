@@ -1,0 +1,81 @@
+> library(energy)
+> Myd<-read.csv(file = "/home/kevin/Documents/Boulot/Projects/SequentialDecisionMaking/src/RTalt0.03.csv", header=TRUE, sep=",")
+> Myd<-read.csv(file = "/home/kevin/Documents/Boulot/Projects/SequentialDecisionMaking/src/RTalt0.06.csv", header=TRUE, sep=",")
+> Mydr<-read.csv(file = "/home/kevin/Documents/Boulot/Projects/SequentialDecisionMaking/src/RTrep0.06.csv", header=TRUE, sep=",")
+> mat = matrix(1:9995,9995,1)
+> > mat[1]
+Erreur : '>' inattendu(e) in ">"
+> [1] 1
+Erreur : '[' inattendu(e) in "["
+> > for (i in 1:4032) {mat[i] = Myd[i,1]}
+Erreur : '>' inattendu(e) in ">"
+> > for (i in 4033:9995) {mat[i] = Mydr[i-4032,1]}
+Erreur : '>' inattendu(e) in ">"
+> for (i in 1:4032) {mat[i] = Myd[i,1]}
+> for (i in 4033:9995) {mat[i] = Mydr[i-4032,1]}
+> eqdist.etest(mat,c(4032,5963),R=1)
+Error in eqdist.etest(mat, c(4032, 5963), R = 1) : 
+  NA/NaN/Inf dans un appel à une fonction externe (argument 1)
+> mat = matrix(1:9996,9996,1)
+> for (i in 1:4886) {mat[i] = Myd[i,1]}
+> for (i in 4887:9996) {mat[i] = Mydr[i-4886,1]}
+> eqdist.etest(mat,c(4886,5116),R=1)
+Error in eqdist.etest(mat, c(4886, 5116), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5115),R=1)
+Error in eqdist.etest(mat, c(4886, 5115), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5114),R=1)
+Error in eqdist.etest(mat, c(4886, 5114), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5118),R=1)
+Error in eqdist.etest(mat, c(4886, 5118), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5119),R=1)
+Error in eqdist.etest(mat, c(4886, 5119), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5120),R=1)
+Error in eqdist.etest(mat, c(4886, 5120), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5109),R=1)
+Error in eqdist.etest(mat, c(4886, 5109), R = 1) : 
+  nrow(x) should equal sum(sizes)
+> eqdist.etest(mat,c(4886,5110),R=1)
+
+	Univariate 2-sample E-test of equal distributions
+
+data:  sample sizes 4886 5110, replicates 1
+E-statistic = 512.18, p-value = 0.5
+
+> eqdist.etest(mat,c(4886,5110),R=5)
+
+	Univariate 2-sample E-test of equal distributions
+
+data:  sample sizes 4886 5110, replicates 5
+E-statistic = 512.18, p-value = 0.3333
+
+> eqdist.etest(mat,c(4886,5110),R=1000)
+
+	Univariate 2-sample E-test of equal distributions
+
+data:  sample sizes 4886 5110, replicates 1000
+E-statistic = 512.18, p-value = 0.02897
+
+> eqdist.etest(mat,c(4886,5110),R=500)
+
+	Univariate 2-sample E-test of equal distributions
+
+data:  sample sizes 4886 5110, replicates 500
+E-statistic = 512.18, p-value = 0.03393
+
+> Myd<-read.csv(file = "/home/kevin/Documents/Boulot/Projects/SequentialDecisionMaking/src/RTalt0.09.csv", header=TRUE, sep=",")
+> Mydr<-read.csv(file = "/home/kevin/Documents/Boulot/Projects/SequentialDecisionMaking/src/RTrep0.09.csv", header=TRUE, sep=",")
+> mat = matrix(1:9998,9998,1)
+> for (i in 1:4990) {mat[i] = Myd[i,1]}
+> for (i in 4991:9998) {mat[i] = Mydr[i-4990,1]}
+> eqdist.etest(mat,c(4990,5008),R=500)
+
+	Univariate 2-sample E-test of equal distributions
+
+data:  sample sizes 4990 5008, replicates 500
+E-statistic = 217.9, p-value = 0.2555
